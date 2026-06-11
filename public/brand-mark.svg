@@ -1,11 +1,19 @@
 <svg width="168" height="168" viewBox="0 0 168 168" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Emu Rabbit mark">
-  <rect width="168" height="168" rx="28" fill="#10231E"/>
-  <path d="M52 109C52 86.36 65.54 69 84 69C102.46 69 116 86.36 116 109V124H52V109Z" fill="#F6F3EA"/>
-  <path d="M66 74C58.41 54.4 54.46 35.17 62.6 29.79C70.37 24.66 83.24 40.16 89.7 64.95" stroke="#F6F3EA" stroke-width="10" stroke-linecap="round"/>
-  <path d="M99.5 72C107.09 52.4 111.04 33.17 102.9 27.79C95.13 22.66 82.26 38.16 75.8 62.95" stroke="#F6F3EA" stroke-width="10" stroke-linecap="round"/>
-  <circle cx="75" cy="100" r="5" fill="#10231E"/>
-  <circle cx="95" cy="100" r="5" fill="#10231E"/>
-  <path d="M81 114C84.09 116.58 87.91 116.58 91 114" stroke="#10231E" stroke-width="5" stroke-linecap="round"/>
-  <path d="M36 132H132" stroke="#FF6B4A" stroke-width="8" stroke-linecap="round"/>
-  <path d="M42 145H102" stroke="#2D6CDF" stroke-width="8" stroke-linecap="round"/>
+  <rect width="168" height="168" rx="30" fill="#1F1626"/>
+  <circle cx="49" cy="38" r="2.5" fill="#F2BE7B" opacity=".82"/>
+  <circle cx="125" cy="45" r="2" fill="#FFF8EE" opacity=".54"/>
+  <circle cx="112" cy="126" r="2.5" fill="#D89A9D" opacity=".72"/>
+  <path d="M39 128C49 120 63 116 84 116C105 116 119 120 129 128" stroke="#F2BE7B" stroke-width="7" stroke-linecap="round" opacity=".42"/>
+  <path d="M49 135C60 130 72 127.5 84 127.5C96 127.5 108 130 119 135" stroke="#9FB79A" stroke-width="5" stroke-linecap="round" opacity=".48"/>
+  <path d="M52 108.5C52 85.8 65.4 68.8 84 68.8C102.6 68.8 116 85.8 116 108.5V122H52V108.5Z" fill="#FFF8EE"/>
+  <path d="M66.5 74C58.6 53.6 54.8 35.4 62.8 30.2C70.5 25.2 83.2 40.2 89.8 64.8" stroke="#FFF8EE" stroke-width="10" stroke-linecap="round"/>
+  <path d="M99.5 72.6C107.4 52.2 111.2 34 103.2 28.8C95.5 23.8 82.8 38.8 76.2 63.4" stroke="#FFF8EE" stroke-width="10" stroke-linecap="round"/>
+  <path d="M69.5 78.5C63.2 60.6 61.2 46.8 65.2 43.6C68.8 40.8 77.2 51.7 82 69" stroke="#D89A9D" stroke-width="3" stroke-linecap="round" opacity=".42"/>
+  <path d="M98.1 77.4C104.4 59.5 106.4 45.6 102.4 42.5C98.8 39.7 90.4 50.6 85.6 67.9" stroke="#D89A9D" stroke-width="3" stroke-linecap="round" opacity=".42"/>
+  <circle cx="75" cy="99" r="5" fill="#1F1626"/>
+  <circle cx="95" cy="99" r="5" fill="#1F1626"/>
+  <path d="M81 113.5C84.2 116.1 87.8 116.1 91 113.5" stroke="#1F1626" stroke-width="5" stroke-linecap="round"/>
+  <path d="M41 108C37 104 35.5 98.4 37.8 92.8" stroke="#FFF8EE" stroke-width="5" stroke-linecap="round" opacity=".78"/>
+  <path d="M127 108C131 104 132.5 98.4 130.2 92.8" stroke="#FFF8EE" stroke-width="5" stroke-linecap="round" opacity=".78"/>
+  <path d="M53 139C61.5 144 71.5 146.5 84 146.5C96.5 146.5 106.5 144 115 139" stroke="#FFF8EE" stroke-width="4" stroke-linecap="round" opacity=".28"/>
 </svg>
