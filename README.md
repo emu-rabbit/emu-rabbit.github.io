@@ -25,6 +25,8 @@
 - 職業技能區塊移植自 GitHub profile repo `emu-rabbit/emu-rabbit`：
   - `public/assets/professional-rabbit-sound.png`
   - `public/assets/professional-skill-icons.svg`
+- 興趣區塊使用 FF14 遊戲截圖作為個人興趣視覺：
+  - `public/assets/ff14-frozen-rabbit.jpg`
 - 字體檔案、命名、授權文件與散布方式必須遵守上游授權；若需求與授權衝突，需先調整做法。
 - GitHub Actions 在 push 到 `main` 後 build `dist` 並部署到 GitHub Pages。
 
