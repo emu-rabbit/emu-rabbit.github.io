@@ -10,6 +10,14 @@
     <meta name="theme-color" content="#1f1626" />
     <title>兔子的窗邊手記</title>
     <link rel="icon" href="./brand-mark.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="./assets/window-portrait.jpg"
+      as="image"
+      imagesrcset="./assets/window-portrait-640.jpg 640w, ./assets/window-portrait-960.jpg 960w, ./assets/window-portrait.jpg 1240w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <link rel="preload" href="./assets/ambient-desktop.webp" as="image" media="(min-width: 761px)" />
     <link rel="preload" href="./assets/ambient-mobile.webp" as="image" media="(max-width: 760px)" />
     <link rel="stylesheet" href="/src/styles/main.css" />
@@ -29,7 +37,93 @@
       </div>
     </header>
 
-    <main id="main" class="empty-stage" aria-label="內容準備中"></main>
+    <main id="main" aria-label="兔子的窗邊手記">
+      <section class="hero-window" aria-labelledby="hero-title">
+        <div class="hero-photo">
+          <picture>
+            <source
+              srcset="./assets/window-portrait-640.jpg 640w, ./assets/window-portrait-960.jpg 960w, ./assets/window-portrait.jpg 1240w"
+              sizes="100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="./assets/window-portrait.jpg"
+              alt="絵夢羽さ沂倚在窗邊微笑的照片"
+              width="1240"
+              height="783"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
+        </div>
+
+        <div class="hero-scrim" aria-hidden="true"></div>
+
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="hero-kicker">
+              <span data-locale-content="zh-TW">窗邊住著一隻白色垂耳兔</span>
+              <span data-locale-content="en">A white lop rabbit lives by the window</span>
+            </p>
+
+            <h1 id="hero-title">
+              <span data-locale-content="zh-TW">絵夢羽さ沂</span>
+              <span data-locale-content="en">絵夢羽さ沂</span>
+            </h1>
+
+            <p class="hero-lede">
+              <span data-locale-content="zh-TW">害怕著寂寞，卻仍然勇敢地去愛。</span>
+              <span data-locale-content="en">Afraid of loneliness, yet still brave enough to love.</span>
+            </p>
+
+            <div class="hero-story">
+              <p>
+                <span data-locale-content="zh-TW">
+                  <span class="copy-line">她渴望誠實，也渴望自由。</span>
+                  <span class="copy-line">沿著屬於自己的兔生路途，</span>
+                  <span class="copy-line">慢慢走向更柔軟、也更坦白的地方。</span>
+                </span>
+                <span data-locale-content="en">
+                  She longs for honesty and freedom, following her own rabbit path toward somewhere softer and more truthful.
+                </span>
+              </p>
+              <p>
+                <span data-locale-content="zh-TW">
+                  <span class="copy-line">如果你剛好來到窗前，她會向你微笑。</span>
+                  <span class="copy-line">示意你再靠近一點，</span>
+                  <span class="copy-line">透過這扇窗，認識她。</span>
+                </span>
+                <span data-locale-content="en">
+                  If you happen to arrive at the window, she will smile and invite you closer, so you can see her more clearly.
+                </span>
+              </p>
+            </div>
+
+            <div class="hero-actions" aria-label="首屏行動">
+              <a class="hero-primary-link" href="#window-story">
+                <span data-locale-content="zh-TW">靠近窗前</span>
+                <span data-locale-content="en">Come closer</span>
+              </a>
+              <span class="hero-whisper">
+                <span data-locale-content="zh-TW">溫柔、自由、坦白地被看見。</span>
+                <span data-locale-content="en">Seen gently, freely, and honestly.</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="window-story" class="window-story-preview" aria-labelledby="window-story-title">
+        <p class="section-eyebrow">
+          <span data-locale-content="zh-TW">下一頁窗光</span>
+          <span data-locale-content="en">The next light</span>
+        </p>
+        <h2 id="window-story-title">
+          <span data-locale-content="zh-TW">這裡會慢慢展開她的故事、作品與真正想被理解的樣子。</span>
+          <span data-locale-content="en">Her story, work, and truest shape will unfold from here.</span>
+        </h2>
+      </section>
+    </main>
 
     <script type="module" src="/src/main.ts"></script>
   </body>
