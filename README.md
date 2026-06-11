@@ -1,4 +1,4 @@
-# Emu Rabbit
+# 兔子的窗邊手記
 
 `emu-rabbit.github.io` 是一個輕量靜態個人入口網站。第一版使用 Vite + TypeScript，不引入 Vue 或其他 UI framework，讓首屏內容直接由 HTML 呈現，TypeScript 只負責語言切換等漸進增強互動。
 
