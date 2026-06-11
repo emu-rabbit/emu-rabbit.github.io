@@ -22,6 +22,9 @@
   - tiny placeholder 只作為載入前的柔和底，不可長時間霧化或遮蔽主照片。
   - 載入完成後以克制淡入呈現；不要為了特效讓首屏停在模糊預覽。
 - `public/brand-mark.svg` 是主要兔子品牌 icon，應避免加入圖表式長條、數字或儀表板語彙。
+- 職業技能區塊移植自 GitHub profile repo `emu-rabbit/emu-rabbit`：
+  - `public/assets/professional-rabbit-sound.png`
+  - `public/assets/professional-skill-icons.svg`
 - 字體檔案、命名、授權文件與散布方式必須遵守上游授權；若需求與授權衝突，需先調整做法。
 - GitHub Actions 在 push 到 `main` 後 build `dist` 並部署到 GitHub Pages。
 
