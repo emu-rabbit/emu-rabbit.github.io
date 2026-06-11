@@ -56,6 +56,11 @@ SaaS landing page, or card-stack portfolio clone.
 Agents should protect these defaults:
 
 - Keep the site lightweight and static unless a stronger need is confirmed.
+- Use Vite + TypeScript as the default first implementation stack. Do not add
+  Vue, another UI framework, a client router, or state management unless the page
+  genuinely needs data-driven reactive UI beyond small progressive interactions.
+- Treat fast first view rendering as a primary technical decision filter: core
+  landing-page content should be present in HTML and not wait for JavaScript.
 - Treat visual identity, typography, motion, layout, and content hierarchy as
   first-class work, not decoration after the page is assembled.
 - Favor semantic HTML, CSS, small progressive JavaScript, and simple build steps.

@@ -11,6 +11,8 @@
 - 網站用途是展示專案擁有者的個人檔案、自我介紹、專業能力、作品與可辨識的個人風格。
 - 預設不需要登入、後端、資料庫、CMS 或私密權限模型。
 - 技術選型應保持 GitHub Pages 友善。
+- 第一版技術棧採用 Vite + TypeScript，不導入 Vue；若未來沒有資料驅動畫面或複雜狀態需求，仍應維持此輕量方向。
+- 首屏速度是長期技術判斷依據：核心 landing page 內容應直接存在於 HTML，不依賴 JavaScript runtime 才能顯示。
 - 視覺與互動可以高度客製，但不得犧牲載入速度、可讀性、無障礙與跨裝置品質。
 - 從 `freezer_space` 只移植共用 Agent 工作制度與專業技能，不移植其 Flutter/Firebase 或產品領域架構。
 
@@ -31,14 +33,15 @@
 ## 高階架構
 
 ```text
-Static HTML
+Vite
+  -> semantic HTML first view
   -> CSS design system
-  -> Progressive JavaScript
-  -> Optimized static assets
+  -> small TypeScript progressive enhancements
+  -> optimized static assets
   -> GitHub Pages / static hosting
 ```
 
-核心內容應能以靜態 HTML 呈現；CSS 建立視覺系統；JavaScript 只負責必要互動與漸進增強；所有圖片、字體與媒體都應作為可部署的靜態資產管理。
+核心內容應能以靜態 HTML 呈現；CSS 建立視覺系統；TypeScript 只負責語言切換、少量互動與漸進增強；所有圖片、字體與媒體都應作為可部署的靜態資產管理。
 
 ## 建議檔案結構
 
@@ -47,23 +50,21 @@ Static HTML
 ```text
 .
   index.html
-  assets/
-    images/
-    icons/
-    fonts/
+  public/
+    brand-mark.svg
   src/
     styles/
-      tokens.css
-      base.css
-      layout.css
-      components.css
-    scripts/
-      main.js
-      interactions/
+      main.css
+    main.ts
+  vite.config.ts
+  tsconfig.json
+  .github/
+    workflows/
+      deploy.yml
   README.md
 ```
 
-若第一版完全不需要 build，可以直接使用 `index.html`、`assets/` 與少量 `src/`。若未來需要編譯 CSS、壓縮資產或模組化 JavaScript，可再引入最小建置工具。
+第一版已採用 Vite 作為最小建置工具，主要價值是快速 dev server、TypeScript 驗證與 GitHub Pages 輸出；不得因此把頁面改成 runtime-first app。若未來要導入 Vue、router、狀態管理或大型 UI 套件，需先確認它確實服務資料驅動或複雜互動需求。
 
 ## 技術選型原則
 
@@ -79,11 +80,11 @@ Static HTML
 - 字體大小不可只依賴 viewport 寬度任意縮放；需確保長字與中英文混排不溢出。
 - 動效需尊重 `prefers-reduced-motion`。
 
-### JavaScript
-- 預設只使用少量原生 JavaScript。
-- 用於互動、scroll 效果、漸進式動畫、主題切換或作品 preview 時，必須可退化。
+### TypeScript
+- 預設只使用少量 TypeScript，編譯後作為瀏覽器端漸進增強。
+- 用於語言切換、互動、scroll 效果、漸進式動畫、主題切換或作品 preview 時，必須可退化。
 - 若使用瀏覽器 API，需檢查支援與 fallback。
-- 不為簡單互動導入大型 runtime。
+- 不為簡單互動導入大型 runtime；Vue 只有在畫面真的需要資料響應、複雜狀態或大量互動元件時才重新評估。
 
 ### Assets
 - 圖片需提供合適尺寸與格式，避免首屏過重。
@@ -94,6 +95,8 @@ Static HTML
 ## 部署架構
 
 第一版應以 GitHub Pages 或等價靜態 hosting 為自然目標。
+
+目前部署流程使用 GitHub Actions，在 push 到 `main` 後執行 `npm ci`、`npm run build`，再透過 GitHub Pages Actions 部署 `dist`。
 
 部署前最低檢查：
 
@@ -134,21 +137,13 @@ Static HTML
 
 ## 測試與驗證策略
 
-若有建置工具：
-
-- 執行 build。
-- 執行 lint、format 或 typecheck。
-- 檢查輸出資產與路徑。
-
-若尚無建置工具：
-
-- 檢查 HTML/CSS/JS 結構。
+- 執行 `npm run build`，其中包含 `tsc --noEmit` 與 Vite build。
+- 檢查輸出資產與相對路徑。
 - 用瀏覽器開啟本機頁面或 dev server。
 - 驗證主要 viewport。
 - 檢查 keyboard、focus、reduced motion 與外部連結。
 
 ## 待決策事項
-- [ ] 第一版是否完全不使用 build tool。
 - [ ] 是否使用自訂字體、使用哪些字體，以及授權與載入策略。
 - [ ] 是否需要多語系內容。
 - [ ] 是否需要作品資料抽成 JSON 或 Markdown。

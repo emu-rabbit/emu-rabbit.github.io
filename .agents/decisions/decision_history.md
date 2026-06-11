@@ -16,6 +16,29 @@
 
 ## 決策紀錄
 
+### D-2026-06-11-002 - 第一版採用 Vite + TypeScript，暫不導入 Vue
+
+- **日期**：2026-06-11
+- **狀態**：已確認
+- **觸發來源**：使用者原先指定 Vite + Vue；後續確認本專案是靜態 landing page，沒有需要資料響應驅動畫面改變的需求，頂多需要語言切換，因此要求改往更輕量、更快的 Vite + TypeScript 方向。
+- **決策內容**：
+  - 第一版技術棧採用 Vite + TypeScript。
+  - 不導入 Vue、client router、狀態管理或 UI framework。
+  - 首屏核心內容需直接存在於 HTML，TypeScript 只負責語言切換與少量漸進增強互動。
+  - 未來技術選型以 first view 快速呈現、靜態輸出簡單、依賴少為主要判斷依據。
+- **理由**：本網站目前是個人靜態 landing page，不需要 reactive component runtime 才能成立。避免 Vue runtime 與框架心智成本，可以讓 first view 更直接、部署更單純，也讓後續 Agent 在新增功能時先評估是否真的需要資料驅動畫面。
+- **影響範圍**：
+  - `AGENTS.md`
+  - `README.md`
+  - `package.json`
+  - `vite.config.ts`
+  - `src/main.ts`
+  - `.agents/architecture/technical_architecture.md`
+  - `.github/workflows/deploy.yml`
+- **後續 Agent 行動**：
+  - 若需求只是語言切換、簡單動效、連結狀態或小型互動，維持 TypeScript 漸進增強。
+  - 若要加入 Vue 或其他 framework，需先確認有資料驅動 UI、複雜狀態或大量互動元件需求，並同步更新 architecture 與決策歷史。
+
 ### D-2026-06-11-001 - 建立輕量靜態個人檔案網站作為專案核心方向
 
 - **日期**：2026-06-11
