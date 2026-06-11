@@ -1,0 +1,16 @@
+# Extra glyphs that must survive font subsetting even when they do not appear
+# in the current HTML or TypeScript copy yet.
+
+絵夢羽さ沂
+繪夢
+Emu Rabbit
+Emu Huninn Subset
+
+0123456789
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+
+，。、；：？！「」『』（）〔〕［］【】《》〈〉
+,.!?;:'"()[]{}<>/\|-_+*=~@#$%^&`...
+©
+ヽ(*´＾`*)ﾉ

@@ -16,6 +16,31 @@
 
 ## 決策紀錄
 
+### D-2026-06-11-004 - 自訂字體採授權合規的自動化 subset 策略
+
+- **日期**：2026-06-11
+- **狀態**：已確認
+- **觸發來源**：使用者評估採用開源免費、可愛圓潤舒適的字型，並確認目前專案仍在調整大方向，未來會持續新增繁體中文、英文與少數日文文案；使用者也指定 `open-huninn` subset 後使用 `Emu Huninn Subset` 命名，且若未來指示與授權要求衝突，Agent 必須主動提醒。
+- **決策內容**：
+  - 自訂中文字體以 `jf open 粉圓` / `open-huninn` 作為優先候選，但部署資產需維持輕量。
+  - 若建立 `open-huninn` 子集 webfont，輸出的 CSS font-family 與檔名需使用 `Emu Huninn Subset`，不可直接沿用上游 Reserved Font Name。
+  - 字體 subset 不採一次性手動字元清單；應以 build 前或部署前自動化掃描 `index.html`、`src/**/*.ts`、未來內容資料檔與 CSS 可見文字，再合併 safelist。
+  - safelist 需納入繁體中文、英文、常用標點、數字、UI 符號，以及會頻繁出現的日文暱稱 `絵夢羽さ沂`。
+  - 若使用者未來要求的字體命名、散布、授權文件處理或 subset 做法與上游授權衝突，Agent 必須先提醒並提出合規替代方案。
+- **理由**：本網站需要保留溫柔、可愛、親近的字體氣質，但仍以快速、輕量、靜態友善為技術核心。由於文案仍會大量變動，手動維護 subset 字元很容易漏字；同時 OFL 字體的 Reserved Font Name 與 Modified Version 規則會影響輸出命名，需讓後續 Agent 在實作前就知道授權邊界。
+- **影響範圍**：
+  - `index.html`
+  - `src/styles/main.css`
+  - `src/main.ts`
+  - `package.json`
+  - `README.md`
+  - `.agents/architecture/technical_architecture.md`
+- **後續 Agent 行動**：
+  - 實作字體時，優先建立可重跑的自動化 subset 腳本，不要只提交手工裁切成果。
+  - 修改文案、語言資料或 CSS 可見文字後，需確認字體 subset 流程會重新納入新字元。
+  - 保留授權文件與來源說明，並在命名與散布方式上遵守上游授權。
+  - 2026-06-11 預覽後，使用者要求暫時移除 `Emu Iansui Subset`，全站改回單一 `Emu Huninn Subset`；未來若重新評估標題字型，仍需保持低成本可回退。
+
 ### D-2026-06-11-003 - 品牌氛圍採溫柔親近路線，背景資產需桌機與手機分開設計
 
 - **日期**：2026-06-11

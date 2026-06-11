@@ -10,19 +10,25 @@
 - TypeScript 負責少量互動邏輯。
 - Semantic HTML 承載核心內容，避免 first view 依賴 JavaScript。
 - CSS custom properties 建立視覺 token，不導入 UI library。
+- 自訂中文字體採用 `jf open 粉圓` / `open-huninn` 作為全站主字型，subset 後以 `Emu Huninn Subset` 命名，並透過 build 前腳本自動掃描站內文案與 safelist 產生，避免未來文案變動時漏字。
+- 字體 safelist 需保留常用繁體中文、英文、標點、數字、UI 符號，以及常駐暱稱 `絵夢羽さ沂`。
 - 首屏背景使用壓縮後的 WebP 資產，桌機與手機各自載入不同構圖：
   - `public/assets/ambient-desktop.webp`
   - `public/assets/ambient-mobile.webp`
 - `public/brand-mark.svg` 是主要兔子品牌 icon，應避免加入圖表式長條、數字或儀表板語彙。
+- 字體檔案、命名、授權文件與散布方式必須遵守上游授權；若需求與授權衝突，需先調整做法。
 - GitHub Actions 在 push 到 `main` 後 build `dist` 並部署到 GitHub Pages。
 
 ## 開發指令
 
 ```powershell
 npm install
+npm run fonts
 npm run dev
 npm run build
 ```
+
+`npm run build` 會透過 `prebuild` 自動執行 `npm run fonts`。本機需要 Python + `fonttools` / `brotli`；GitHub Actions 會在部署前安裝這兩個工具。若在 Codex sandbox 中讀取 Python 套件快取遇到權限問題，依 `AGENTS.md` 的 Windows sandbox note 以 escalated 方式重跑字體或 build 指令。
 
 ## 部署
 

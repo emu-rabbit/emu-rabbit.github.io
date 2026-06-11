@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Emu Huninn Subset";
+  src: url("/fonts/emu-huninn-subset.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   color-scheme: dark;
   --color-ink: #fff8ee;
@@ -10,8 +18,8 @@
   --color-amber: #f2be7b;
   --color-line: rgba(255, 248, 238, 0.18);
   --color-panel: rgba(31, 22, 38, 0.56);
-  --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --font-sans: "Emu Huninn Subset", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Emu Huninn Subset", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --space-page: clamp(1.25rem, 5vw, 5rem);
   --max-width: 1120px;
   --radius-small: 8px;
@@ -126,7 +134,8 @@ a:focus-visible {
   gap: 0.7rem;
   width: fit-content;
   border-radius: var(--radius-small);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -210,7 +219,8 @@ main {
   margin: 0 0 1rem;
   color: var(--color-amber);
   font-size: 0.84rem;
-  font-weight: 820;
+  font-family: var(--font-display);
+  font-weight: 400;
   letter-spacing: 0;
 }
 
@@ -223,8 +233,8 @@ p {
 
 h1,
 h2 {
-  font-family: var(--font-serif);
-  font-weight: 760;
+  font-family: var(--font-display);
+  font-weight: 400;
 }
 
 h1 {
@@ -352,6 +362,8 @@ h2 {
 .voice-item h3 {
   margin: 4.5rem 0 0.65rem;
   color: var(--color-ink);
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: clamp(1.35rem, 2.6vw, 1.9rem);
   line-height: 1.2;
   letter-spacing: 0;
@@ -433,18 +445,17 @@ h2 {
 
   .site-header {
     position: static;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.7rem 1rem;
   }
 
   .brand-link {
-    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .site-nav {
-    order: 3;
+    grid-column: 1 / -1;
     width: 100%;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -453,8 +464,7 @@ h2 {
   }
 
   .language-switcher {
-    order: 2;
-    flex: 0 0 auto;
+    justify-self: end;
   }
 
   .hero {
@@ -463,7 +473,7 @@ h2 {
 
   h1 {
     max-width: 9.5ch;
-    font-size: clamp(3.2rem, 18vw, 4.7rem);
+    font-size: clamp(3rem, 15vw, 4rem);
   }
 
   .hero-lede {

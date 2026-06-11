@@ -89,6 +89,12 @@ Vite
 ### Assets
 - 圖片需提供合適尺寸與格式，避免首屏過重。
 - 字體需控制字重與子集，避免載入過多。
+- 自訂中文字體採用 `jf open 粉圓` / `open-huninn` 作為全站主字型；其 subset webfont 的 CSS font-family 與輸出檔名使用 `Emu Huninn Subset`，避免把經過裁切的 Modified Version 直接命名為上游 Reserved Font Name。
+- 字體 subset 流程必須考慮本網站仍在調整大方向，未來會持續新增與修改文案；不可只依單次人工字元清單維護。
+- 字體字元來源應由部署前或 build 前自動化腳本掃描 `index.html`、`src/**/*.ts`、未來內容資料檔與 CSS 中的可見文字，再合併 safelist。
+- safelist 至少需保留繁體中文、英文、常用標點、數字、目前 UI 符號，以及會頻繁出現的日文暱稱 `絵夢羽さ沂`。
+- 若使用者未來對字體命名、散布方式、授權文件或 subset 行為的指示與上游授權條款衝突，Agent 必須主動提醒並改採符合授權的做法，不能為了完成版面直接忽略授權。
+- 字體產生流程由 `npm run fonts` 執行，`npm run build` 透過 `prebuild` 自動重跑；GitHub Actions 部署前需安裝 Python `fonttools` 與 `brotli`。
 - 影片、canvas、WebGL 或大量動畫需有明確理由與低效能 fallback。
 - 所有非裝飾圖片需有替代文字或可理解的上下文。
 - 首屏氛圍背景若使用生成圖或大圖，需提供桌機橫式與手機直式資產，並以 CSS media query 或等價方式按 viewport 載入；手機版不得只依賴桌機圖裁切。
@@ -146,7 +152,7 @@ Vite
 - 檢查 keyboard、focus、reduced motion 與外部連結。
 
 ## 待決策事項
-- [ ] 是否使用自訂字體、使用哪些字體，以及授權與載入策略。
+- [x] 預覽後暫時移除 `Emu Iansui Subset`，全站改回單一粉圓字型。
 - [ ] 是否需要多語系內容。
 - [ ] 是否需要作品資料抽成 JSON 或 Markdown。
 - [ ] 是否需要動態主題、canvas、WebGL 或其他高客製互動。
