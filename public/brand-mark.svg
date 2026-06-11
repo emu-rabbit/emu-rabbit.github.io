@@ -1,0 +1,11 @@
+<svg width="168" height="168" viewBox="0 0 168 168" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Emu Rabbit mark">
+  <rect width="168" height="168" rx="28" fill="#10231E"/>
+  <path d="M52 109C52 86.36 65.54 69 84 69C102.46 69 116 86.36 116 109V124H52V109Z" fill="#F6F3EA"/>
+  <path d="M66 74C58.41 54.4 54.46 35.17 62.6 29.79C70.37 24.66 83.24 40.16 89.7 64.95" stroke="#F6F3EA" stroke-width="10" stroke-linecap="round"/>
+  <path d="M99.5 72C107.09 52.4 111.04 33.17 102.9 27.79C95.13 22.66 82.26 38.16 75.8 62.95" stroke="#F6F3EA" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="75" cy="100" r="5" fill="#10231E"/>
+  <circle cx="95" cy="100" r="5" fill="#10231E"/>
+  <path d="M81 114C84.09 116.58 87.91 116.58 91 114" stroke="#10231E" stroke-width="5" stroke-linecap="round"/>
+  <path d="M36 132H132" stroke="#FF6B4A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M42 145H102" stroke="#2D6CDF" stroke-width="8" stroke-linecap="round"/>
+</svg>

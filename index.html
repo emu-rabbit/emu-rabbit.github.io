@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Emu Rabbit 的個人入口：輕量、快速、帶有個人節奏的靜態網站。"
+    />
+    <meta name="theme-color" content="#10231e" />
+    <title>Emu Rabbit</title>
+    <link rel="icon" href="./brand-mark.svg" type="image/svg+xml" />
+    <link rel="preload" href="./brand-mark.svg" as="image" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skipLink">跳到主要內容</a>
+
+    <header class="site-header" aria-label="Site header">
+      <a class="brand-link" href="#" aria-label="Emu Rabbit home">
+        <img src="./brand-mark.svg" width="34" height="34" alt="" aria-hidden="true" />
+        <span>Emu Rabbit</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#about" data-i18n="navAbout">關於</a>
+        <a href="#work" data-i18n="navWork">方向</a>
+        <a href="#contact" data-i18n="navContact">聯絡</a>
+      </nav>
+
+      <div class="language-switcher" aria-label="Language">
+        <button type="button" data-locale="zh-TW" aria-pressed="true">中</button>
+        <button type="button" data-locale="en" aria-pressed="false">EN</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="heroEyebrow">靜態網頁 / 個人入口 / 小而清楚</p>
+          <h1 id="hero-title">Emu Rabbit</h1>
+          <p class="hero-lede" data-i18n="heroLede">
+            把想法整理成快速、清楚、帶一點手作溫度的網頁與工具。
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="text-link" href="#work" data-i18n="heroPrimary">看目前方向</a>
+            <a class="text-link muted" href="https://github.com/emu-rabbit" rel="noreferrer" data-i18n="heroSecondary">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <img src="./brand-mark.svg" width="168" height="168" alt="" />
+          <div class="orbit one"></div>
+          <div class="orbit two"></div>
+          <div class="signal-line"></div>
+        </div>
+      </section>
+
+      <section class="intro-strip" aria-label="Current focus">
+        <p data-i18n="introStrip">
+          這裡會逐步收斂成一個更完整的自我介紹頁：身份、作品、工作方式與可被理解的個人風格。
+        </p>
+      </section>
+
+      <section id="about" class="content-section split-section" aria-labelledby="about-title">
+        <div>
+          <p class="section-kicker" data-i18n="aboutKicker">About</p>
+          <h2 id="about-title" data-i18n="aboutTitle">先做得輕，再做得有記憶點。</h2>
+        </div>
+        <div class="section-body">
+          <p data-i18n="aboutBodyOne">
+            這個網站的第一版保留刻意的空間：不假裝已經有完整履歷資料，也不急著堆滿模板區塊。它先建立一個夠快、夠清楚、容易被改寫的基礎。
+          </p>
+          <p data-i18n="aboutBodyTwo">
+            後續可以加入作品、寫作、工具、研究或其他公開身份，但每一個區塊都應該服務「讓人更理解 Emu Rabbit」這件事。
+          </p>
+        </div>
+      </section>
+
+      <section id="work" class="content-section" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="section-kicker" data-i18n="workKicker">Direction</p>
+          <h2 id="work-title" data-i18n="workTitle">目前先留下三條清楚的線索。</h2>
+        </div>
+
+        <div class="direction-list">
+          <article class="direction-item">
+            <span class="direction-number">01</span>
+            <div>
+              <h3 data-i18n="directionOneTitle">快速抵達</h3>
+              <p data-i18n="directionOneBody">
+                首屏內容直接在 HTML 中出現，TypeScript 只負責少量互動，讓頁面先被看見。
+              </p>
+            </div>
+          </article>
+          <article class="direction-item">
+            <span class="direction-number">02</span>
+            <div>
+              <h3 data-i18n="directionTwoTitle">個人而非模板</h3>
+              <p data-i18n="directionTwoBody">
+                版面、色彩、節奏與文案都保留可塑性，避免變成制式履歷或卡片堆疊。
+              </p>
+            </div>
+          </article>
+          <article class="direction-item">
+            <span class="direction-number">03</span>
+            <div>
+              <h3 data-i18n="directionThreeTitle">容易繼續長大</h3>
+              <p data-i18n="directionThreeBody">
+                未來新增語言、作品或頁面時，不需要推翻整個架構，也不先背負不必要的框架重量。
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="content-section contact-section" aria-labelledby="contact-title">
+        <p class="section-kicker" data-i18n="contactKicker">Next</p>
+        <h2 id="contact-title" data-i18n="contactTitle">下一步是把真實內容放進來。</h2>
+        <p data-i18n="contactBody">
+          作品、簡介、社群連結與語氣都可以在這個輕量基底上逐步替換。現在的版本先確保入口快速、乾淨，而且可部署。
+        </p>
+        <a class="text-link" href="https://github.com/emu-rabbit" rel="noreferrer" data-i18n="contactLink">
+          前往 GitHub
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="current-year">2026</span> Emu Rabbit</p>
+      <p class="locale-status" aria-live="polite" data-i18n="localeStatus">目前語言：繁體中文</p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
