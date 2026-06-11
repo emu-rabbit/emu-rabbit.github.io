@@ -63,6 +63,13 @@ Agents should protect these defaults:
   landing-page content should be present in HTML and not wait for JavaScript.
 - Treat visual identity, typography, motion, layout, and content hierarchy as
   first-class work, not decoration after the page is assembled.
+- Keep the brand atmosphere gentle, free, comfortable, intimate, and personal;
+  avoid cold professional resume language, generic SaaS/portfolio polish, and
+  data-dashboard visual cues such as chart-like bars, numbers, or infographic
+  accents unless the user explicitly asks for them.
+- Treat desktop and mobile as separate first-class compositions. Background
+  art, hero layout, reading rhythm, and spacing must be intentionally checked on
+  both; do not rely on cropping or passive scaling as the final mobile design.
 - Favor semantic HTML, CSS, small progressive JavaScript, and simple build steps.
 - Avoid importing unrelated Freezer Space product goals, privacy models,
   Flutter/Firebase assumptions, relationship context, or domain-specific features.
