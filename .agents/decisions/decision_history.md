@@ -16,6 +16,27 @@
 
 ## 決策紀錄
 
+### D-2026-06-11-006 - 自動化視覺驗證需先確認工具可信度
+
+- **日期**：2026-06-11
+- **狀態**：已確認
+- **觸發來源**：首屏 UI 實作時，in-app Browser / `node_repl` 在 Windows sandbox 中無法啟動；改用 Edge headless 截圖後，又因重用截圖檔名、browser profile、cache 狀態與 headless viewport 差異，導致 Agent 一度把可疑舊截圖或裁切截圖當成真實畫面，使用者後續指出自己瀏覽器看到的是正常畫面。
+- **決策內容**：
+  - 重大 UI 變更仍需瀏覽器驗證，但自動化截圖本身也必須被驗證可信度。
+  - 若 in-app Browser / `node_repl` 在本機 Windows sandbox 中連續啟動失敗，不要反覆卡住；改用 served HTML/CSS 檢查、使用者手動瀏覽器回報，或其他可用的本機瀏覽器驗證方式。
+  - 使用 Edge/Chromium headless 截圖時，需使用全新截圖檔名、乾淨 `user-data-dir` 與 cache-busting URL；不可反覆覆寫同一張圖後假設檢視器顯示的是最新畫面。
+  - Headless `--window-size` 不必然代表真實手機 viewport；若截圖呈現的裁切或 layout 與 served CSS/DOM 或使用者實際瀏覽器互相矛盾，需先停止依截圖猜測修正。
+  - 自動化截圖、DOM/CSS 檢查與使用者手動瀏覽器結果衝突時，應明確回報工具限制，並以使用者實際畫面與可檢查的 served CSS/DOM 作為下一步依據。
+- **理由**：本網站重視桌機與手機首屏品質，但錯誤或過期的自動截圖會引導 Agent 做出不必要甚至破壞性的 UI 修正。把工具可信度納入驗證流程，可以保留瀏覽器驗證價值，同時避免後續 Agent 在同一組 Windows/Codex 工具限制上重複踩坑。
+- **影響範圍**：
+  - `.agents/skills/professional/development_standards.md`
+  - `.agents/architecture/technical_architecture.md`
+  - 所有後續 UI、responsive layout 與視覺驗證任務
+- **後續 Agent 行動**：
+  - UI 驗證前先確認工具輸出是否新鮮、viewport 是否可信、server 是否提供最新 CSS/HTML。
+  - 若使用者指出自動截圖與實際瀏覽器不一致，先相信這是驗證工具問題的可能性，而不是立即改 UI。
+  - 最終回報中應區分「已由 build/DOM/CSS 驗證」與「受工具限制的截圖驗證」。
+
 ### D-2026-06-11-005 - 首屏人物照片採多尺寸漸進載入與柔和融合構圖
 
 - **日期**：2026-06-11

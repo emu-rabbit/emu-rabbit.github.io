@@ -34,6 +34,7 @@
 ### 測試與驗證
 - **靜態驗證**：若有 build、lint、format 或 typecheck，變更後應執行。
 - **瀏覽器驗證**：重大 UI 變更後，應用瀏覽器檢查實際畫面，而不是只看程式碼。
+- **工具可信度檢查**：若自動化截圖、headless browser 或 in-app Browser 顯示的畫面與使用者手動瀏覽器、served CSS/DOM 或本機檔案狀態互相矛盾，不可繼續依截圖猜測修正。應先確認 dev server 是否重啟、URL 是否 cache-busting、截圖檔名是否全新、瀏覽器 profile 是否乾淨，並檢查實際 served CSS/HTML；若仍矛盾，明確標註工具結果不可靠，以使用者實際瀏覽器回報與可檢查的 DOM/CSS 為準。
 - **無工具時手動檢查**：若專案尚未有測試工具，至少檢查檔案結構、HTML 合法性、連結與 responsive 版面。
 
 ## 執行步驟

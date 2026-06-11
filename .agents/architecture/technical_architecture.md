@@ -155,6 +155,10 @@ Vite
 - 用瀏覽器開啟本機頁面或 dev server。
 - 驗證主要 viewport。
 - 檢查 keyboard、focus、reduced motion 與外部連結。
+- 在此 Windows/Codex 環境中，in-app Browser / `node_repl` 可能因 sandbox 啟動失敗；若連續失敗，不要卡在該工具，可改用使用者手動瀏覽器回報、served HTML/CSS 檢查，或其他可用的本機瀏覽器驗證方式。
+- 若使用 Edge/Chromium headless 截圖驗證 responsive UI，必須使用全新截圖檔名、乾淨 `user-data-dir` 與 cache-busting URL，避免看見舊圖或舊 profile 狀態。
+- Headless `--window-size` 截圖不一定等同真實手機 viewport；若手機截圖顯示裁切、控制項消失或與使用者實際瀏覽器矛盾，先檢查 served CSS/DOM 與瀏覽器 viewport 設定，不要把可疑截圖當成唯一真相反覆改版。
+- 當自動截圖與使用者手動瀏覽器結果衝突時，應回報工具限制，保留已由 served CSS/DOM 支撐的修正，並請使用者實際畫面優先指引下一步。
 
 ## 待決策事項
 - [x] 預覽後暫時移除 `Emu Iansui Subset`，全站改回單一粉圓字型。
