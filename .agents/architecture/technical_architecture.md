@@ -88,6 +88,11 @@ Vite
 
 ### Assets
 - 圖片需提供合適尺寸與格式，避免首屏過重。
+- 首屏或大型人物照片不得只提交單一原圖。應依實際構圖輸出多尺寸版本，例如桌機寬版、一般螢幕版、手機版，並額外輸出極小 placeholder 作為慢網路載入前的柔和底。
+- 大型圖片 HTML 應使用 `srcset` / `sizes`，讓瀏覽器按 viewport 與 DPR 選擇合適資產；若圖片位於首屏，可用 `fetchpriority="high"`，但仍需控制檔案大小。
+- 圖片容器需用固定版面空間、`width` / `height`、`aspect-ratio`、明確 `min-height` 或等價方式避免載入後內容跳躍。
+- 慢網路時可使用 tiny placeholder、柔和底色或低成本淡入，但 placeholder 不可長時間霧化、暗化或遮蔽主照片；載入完成後主照片應清楚可見。
+- 人物主視覺照片若與氛圍背景並存，優先使用柔和遮罩、漸層融合或構圖留白整合，不用硬切分相框、過重霧化或大面積暗罩壓掉原本品牌背景，除非使用者明確要求相框式設計。
 - 字體需控制字重與子集，避免載入過多。
 - 自訂中文字體採用 `jf open 粉圓` / `open-huninn` 作為全站主字型；其 subset webfont 的 CSS font-family 與輸出檔名使用 `Emu Huninn Subset`，避免把經過裁切的 Modified Version 直接命名為上游 Reserved Font Name。
 - 字體 subset 流程必須考慮本網站仍在調整大方向，未來會持續新增與修改文案；不可只依單次人工字元清單維護。

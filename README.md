@@ -15,6 +15,12 @@
 - 首屏背景使用壓縮後的 WebP 資產，桌機與手機各自載入不同構圖：
   - `public/assets/ambient-desktop.webp`
   - `public/assets/ambient-mobile.webp`
+- 首屏或大型人物照片需先處理成 responsive image，不直接只放單一原圖：
+  - 輸出至少桌機寬版、一般螢幕版、手機版與一張極小 placeholder。
+  - HTML 使用 `srcset` / `sizes` 讓瀏覽器依 viewport 選擇合適尺寸。
+  - 圖片容器需先有穩定尺寸或明確版面空間，慢網路時不可造成內容跳躍。
+  - tiny placeholder 只作為載入前的柔和底，不可長時間霧化或遮蔽主照片。
+  - 載入完成後以克制淡入呈現；不要為了特效讓首屏停在模糊預覽。
 - `public/brand-mark.svg` 是主要兔子品牌 icon，應避免加入圖表式長條、數字或儀表板語彙。
 - 字體檔案、命名、授權文件與散布方式必須遵守上游授權；若需求與授權衝突，需先調整做法。
 - GitHub Actions 在 push 到 `main` 後 build `dist` 並部署到 GitHub Pages。
