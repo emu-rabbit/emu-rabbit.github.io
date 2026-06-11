@@ -1,0 +1,41 @@
+# emu-rabbit.github.io 決策歷史
+
+## 文件目的
+本文件記錄 `emu-rabbit.github.io` 中會影響未來工作、且後續 Agent 需要理解「為什麼如此決定」的重要決策。
+
+它不是聊天紀錄、待辦清單或修訂流水帳。若規則能直接寫在 mission、skill、workflow、architecture 或 README 中並清楚約束 Agent，通常不需要額外寫入本文件。
+
+後續 Agent 在規劃或執行任務前，必須依 `.agents/skills/core/decision_traceability.md` 搜尋本文件，確認是否已有相關決策。
+
+## 使用規則
+- 新決策放在「決策紀錄」最上方，方便後續 Agent 先看到最新脈絡。
+- 每筆決策必須有穩定 ID，格式建議為 `D-YYYY-MM-DD-序號`。
+- 若新決策覆蓋舊決策，不要刪除舊紀錄；應新增一筆修訂決策，並在舊紀錄的狀態或備註中標示已被哪一筆決策修訂。
+- 若只是任務待辦、一次性修正、一般規則同步、文件調整過程或尚未確認的討論，不應寫入本文件。
+- 每筆決策都必須說明保留理由；若說不出後續 Agent 為何需要查閱它，就不應新增。
+
+## 決策紀錄
+
+### D-2026-06-11-001 - 建立輕量靜態個人檔案網站作為專案核心方向
+
+- **日期**：2026-06-11
+- **狀態**：已確認
+- **觸發來源**：使用者要求初始化本專案，說明本專案會是非常輕量化的靜態網頁，用來展示個人檔案；它像個人自我介紹頁面，但要直接用網頁製作高度客製化、具有獨特設計感，而非模板感覺。
+- **決策內容**：
+  - 本專案定位為輕量靜態個人檔案與自我介紹網站。
+  - 技術與內容應優先保持靜態、簡潔、GitHub Pages 友善。
+  - UI/UX 應高度客製並具有個人識別，不應採用通用履歷模板或卡片堆疊 portfolio clone。
+  - 從 sibling `freezer_space` 移植 Agent skill 時，只保留可共用的核心想法、價值、工作流程與專業技能；不移植 Freezer Space 的產品目標、關係脈絡、Flutter/Firebase 架構、登入權限或領域功能。
+- **理由**：這個 repo 的第一個可維護資產是 Agent 工作脈絡。先把專案定位與移植邊界寫清楚，可以避免後續 Agent 用錯模板、過度導入框架，或把 `freezer_space` 的私密生活工具脈絡誤帶入本專案。
+- **影響範圍**：
+  - `AGENTS.md`
+  - `.agents/mission/project_mission.md`
+  - `.agents/mission/feature_domains.md`
+  - `.agents/mission/product_experience.md`
+  - `.agents/architecture/technical_architecture.md`
+  - `.agents/skills/professional/development_standards.md`
+  - `.agents/skills/professional/ui_ux_standards.md`
+- **後續 Agent 行動**：
+  - 新增技術棧、設計方向或內容架構前，先檢查是否符合輕量靜態與高客製個人展示目標。
+  - 若要導入 framework、CMS、後端、資料庫或重型動畫，需先確認它確實服務本專案目標。
+  - 不得把 Freezer Space 專屬產品脈絡搬入本 repo，除非使用者明確要求。
