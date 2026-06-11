@@ -32,6 +32,59 @@ function setupHeroPhotoLoading(): void {
   });
 }
 
+function setupLifeGallery(): void {
+  const gallery = document.querySelector<HTMLElement>('[data-life-gallery]');
+
+  if (!gallery) {
+    return;
+  }
+
+  const track = gallery.querySelector<HTMLOListElement>('.life-gallery-track');
+  const slides = Array.from(gallery.querySelectorAll<HTMLElement>('[data-life-gallery-slide]'));
+  const previousButton = gallery.querySelector<HTMLButtonElement>('[data-life-gallery-action="prev"]');
+  const nextButton = gallery.querySelector<HTMLButtonElement>('[data-life-gallery-action="next"]');
+  const status = gallery.querySelector<HTMLElement>('[data-life-gallery-status]');
+
+  if (!track || slides.length === 0 || !previousButton || !nextButton || !status) {
+    return;
+  }
+
+  let activeIndex = 0;
+
+  const render = () => {
+    track.style.transform = `translateX(-${activeIndex * 100}%)`;
+    status.textContent = `${activeIndex + 1} / ${slides.length}`;
+
+    slides.forEach((slide, index) => {
+      const isActive = index === activeIndex;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', String(!isActive));
+    });
+  };
+
+  const goTo = (index: number) => {
+    activeIndex = (index + slides.length) % slides.length;
+    render();
+  };
+
+  previousButton.addEventListener('click', () => goTo(activeIndex - 1));
+  nextButton.addEventListener('click', () => goTo(activeIndex + 1));
+
+  gallery.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      goTo(activeIndex - 1);
+    }
+
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      goTo(activeIndex + 1);
+    }
+  });
+
+  render();
+}
+
 function getStoredLocale(): Locale | null {
   const storedLocale = window.localStorage.getItem(localeStorageKey);
   return supportedLocales.find((locale) => locale === storedLocale) ?? null;
@@ -70,5 +123,6 @@ localeButtons.forEach((button) => {
 
 applyLocale(getInitialLocale());
 setupHeroPhotoLoading();
+setupLifeGallery();
 
 export {};

@@ -938,6 +938,224 @@ html.is-enhanced .hero-photo img.is-loaded {
   line-height: 1.92;
 }
 
+.life-gallery {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.4rem, 4vw, 4rem) var(--space-page) clamp(2.8rem, 5vw, 4.8rem);
+  background:
+    linear-gradient(110deg, rgba(216, 154, 157, 0.18), transparent 36%),
+    linear-gradient(260deg, rgba(159, 183, 154, 0.16), transparent 38%),
+    linear-gradient(180deg, rgba(19, 15, 24, 0.8), rgba(31, 22, 38, 0.74)),
+    var(--color-night-deep);
+}
+
+.life-gallery::before,
+.life-gallery::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.life-gallery::before {
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 248, 238, 0.22), transparent);
+}
+
+.life-gallery::after {
+  top: clamp(4rem, 9vw, 7rem);
+  right: max(1.1rem, calc((100vw - var(--max-width)) / 2));
+  width: min(28rem, 64vw);
+  height: min(18rem, 44vw);
+  border-top: 1px solid rgba(242, 190, 123, 0.22);
+  border-right: 1px solid rgba(255, 248, 238, 0.12);
+  border-radius: 0 58% 0 0;
+  opacity: 0.76;
+}
+
+.life-gallery-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.2rem, 2.6vw, 2.2rem);
+  align-items: start;
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+}
+
+.life-gallery-copy {
+  width: min(100%, 46rem);
+  margin: 0 auto;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.life-gallery-copy h2 {
+  margin: 0.62rem 0 0;
+  color: var(--color-ink);
+  font-size: clamp(1.78rem, 3.3vw, 3rem);
+  font-weight: 400;
+  line-height: 1.42;
+}
+
+.life-gallery-carousel {
+  --gallery-frame-height: clamp(22rem, 46svh, 28rem);
+  --gallery-frame-width: min(100%, 46rem);
+  --gallery-frame-surface: rgba(61, 47, 59, 0.96);
+
+  position: relative;
+  width: min(calc(100% - clamp(1.5rem, 6vw, 5rem)), 64rem);
+  margin: 0 auto;
+  min-width: 0;
+}
+
+.life-gallery-carousel::before {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  z-index: -1;
+  width: var(--gallery-frame-width);
+  height: var(--gallery-frame-height);
+  border: 1px solid rgba(255, 248, 238, 0.28);
+  border-radius: var(--radius-small);
+  content: "";
+  background:
+    linear-gradient(145deg, rgba(255, 248, 238, 0.08), rgba(159, 183, 154, 0.06)),
+    var(--gallery-frame-surface);
+  box-shadow: inset 0 1px 0 rgba(255, 248, 238, 0.16);
+  transform: translateX(-48%) rotate(0.8deg);
+}
+
+.life-gallery-viewport {
+  width: var(--gallery-frame-width);
+  height: var(--gallery-frame-height);
+  margin: 0 auto;
+  border: 1px solid rgba(255, 248, 238, 0.34);
+  border-radius: var(--radius-small);
+  overflow-x: auto;
+  background:
+    linear-gradient(145deg, rgba(255, 248, 238, 0.1), rgba(216, 154, 157, 0.07) 44%, rgba(159, 183, 154, 0.06)),
+    var(--gallery-frame-surface);
+  box-shadow:
+    0 1.6rem 4rem rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 248, 238, 0.26);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.life-gallery-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+html.is-enhanced .life-gallery-viewport {
+  overflow: hidden;
+}
+
+.life-gallery-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.is-enhanced .life-gallery-track {
+  transition: transform 460ms ease;
+}
+
+.life-gallery-slide {
+  display: grid;
+  place-items: center;
+  flex: 0 0 100%;
+  height: 100%;
+  min-width: 0;
+  padding: clamp(0.62rem, 1.5vw, 1rem);
+  background: var(--gallery-frame-surface);
+  scroll-snap-align: center;
+}
+
+.life-gallery-slide figure {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--gallery-frame-surface);
+}
+
+.life-gallery-slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.life-gallery-controls {
+  display: none;
+}
+
+html.is-enhanced .life-gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.78rem;
+  margin-top: 1.35rem;
+}
+
+.life-gallery-nav {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 248, 238, 0.22);
+  border-radius: var(--radius-small);
+  background: rgba(255, 248, 238, 0.1);
+  color: var(--color-ink);
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+  box-shadow: inset 0 1px 0 rgba(255, 248, 238, 0.12);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.life-gallery-nav span {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  font-size: 0;
+  line-height: 0;
+  transform: rotate(135deg);
+}
+
+.life-gallery-nav[data-life-gallery-action="next"] span {
+  transform: rotate(-45deg);
+}
+
+.life-gallery-nav:hover {
+  border-color: rgba(242, 190, 123, 0.52);
+  background: rgba(255, 248, 238, 0.16);
+  transform: translateY(-1px);
+}
+
+.life-gallery-status {
+  min-width: 4.2rem;
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
 @media (max-width: 760px) {
   body::before {
     background-image: url("/assets/ambient-mobile.webp");
@@ -1271,6 +1489,53 @@ html.is-enhanced .hero-photo img.is-loaded {
     line-height: 1.88;
   }
 
+  .life-gallery {
+    padding-top: 3.2rem;
+    padding-bottom: 4.1rem;
+    background:
+      linear-gradient(135deg, rgba(216, 154, 157, 0.16), transparent 42%),
+      linear-gradient(315deg, rgba(159, 183, 154, 0.13), transparent 46%),
+      linear-gradient(180deg, rgba(19, 15, 24, 0.82), rgba(31, 22, 38, 0.76)),
+      var(--color-night-deep);
+  }
+
+  .life-gallery::after {
+    top: 3rem;
+    right: var(--space-page);
+    width: 68vw;
+    height: 10rem;
+  }
+
+  .life-gallery-inner {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .life-gallery-copy h2 {
+    font-size: 1.62rem;
+    line-height: 1.55;
+  }
+
+  .life-gallery-carousel {
+    --gallery-frame-height: clamp(19rem, 52svh, 27rem);
+    --gallery-frame-width: 100%;
+
+    width: min(calc(100% - 0.8rem), 28rem);
+  }
+
+  .life-gallery-slide {
+    padding: 0.58rem;
+  }
+
+  html.is-enhanced .life-gallery-controls {
+    margin-top: 1.1rem;
+  }
+
+  .life-gallery-nav {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
 }
 
 @media (max-width: 360px) {
@@ -1346,6 +1611,14 @@ html.is-enhanced .hero-photo img.is-loaded {
 
   .interest-ledger p {
     font-size: 0.94rem;
+  }
+
+  .life-gallery-copy h2 {
+    font-size: 1.42rem;
+  }
+
+  .life-gallery-carousel {
+    width: 100%;
   }
 }
 
