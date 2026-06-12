@@ -1019,6 +1019,16 @@ html.is-enhanced .hero-photo img.is-loaded {
   min-width: 0;
 }
 
+@media (min-width: 900px) {
+  .life-gallery-copy {
+    width: min(100%, 58rem);
+  }
+
+  .life-gallery-copy .copy-line {
+    white-space: nowrap;
+  }
+}
+
 .life-gallery-carousel::before {
   position: absolute;
   top: 2%;
