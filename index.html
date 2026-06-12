@@ -17,7 +17,7 @@
       href="./assets/window-portrait.jpg"
       as="image"
       imagesrcset="./assets/window-portrait-640.jpg 640w, ./assets/window-portrait-960.jpg 960w, ./assets/window-portrait.jpg 1240w"
-      imagesizes="100vw"
+      imagesizes="(max-width: 760px) 100vw, 76vw"
       fetchpriority="high"
     />
     <link rel="preload" href="./assets/ambient-desktop.webp" as="image" media="(min-width: 761px)" />
@@ -45,14 +45,14 @@
           <picture>
             <source
               srcset="./assets/window-portrait-640.jpg 640w, ./assets/window-portrait-960.jpg 960w, ./assets/window-portrait.jpg 1240w"
-              sizes="100vw"
+              sizes="(max-width: 760px) 100vw, 76vw"
               type="image/jpeg"
             />
             <img
               src="./assets/window-portrait.jpg"
               alt="絵夢羽さ沂倚在窗邊微笑的照片"
               width="1240"
-              height="783"
+              height="784"
               fetchpriority="high"
               decoding="async"
             />

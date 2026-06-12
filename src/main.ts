@@ -32,6 +32,22 @@ function setupHeroPhotoLoading(): void {
   });
 }
 
+function setupLazyImageLoading(): void {
+  const lazyImages = Array.from(document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]'));
+
+  lazyImages.forEach((image) => {
+    const markLoaded = () => image.classList.add('is-loaded');
+
+    if (image.complete && image.naturalWidth > 0) {
+      markLoaded();
+      return;
+    }
+
+    image.addEventListener('load', markLoaded, { once: true });
+    image.addEventListener('error', markLoaded, { once: true });
+  });
+}
+
 function setupLifeGallery(): void {
   const gallery = document.querySelector<HTMLElement>('[data-life-gallery]');
 
@@ -123,6 +139,7 @@ localeButtons.forEach((button) => {
 
 applyLocale(getInitialLocale());
 setupHeroPhotoLoading();
+setupLazyImageLoading();
 setupLifeGallery();
 
 export {};

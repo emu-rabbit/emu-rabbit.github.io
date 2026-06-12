@@ -79,6 +79,15 @@ img {
   max-width: 100%;
 }
 
+html.is-enhanced img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 420ms ease;
+}
+
+html.is-enhanced img[loading="lazy"].is-loaded {
+  opacity: 1;
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
