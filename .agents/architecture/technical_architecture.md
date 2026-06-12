@@ -152,12 +152,11 @@ Vite
 
 - 執行 `npm run build`，其中包含 `tsc --noEmit` 與 Vite build。
 - 檢查輸出資產與相對路徑。
-- 用瀏覽器開啟本機頁面或 dev server。
-- 視覺品質、主要 viewport 與細節氛圍以使用者手動瀏覽器檢驗為準；Agent 不再以自動截圖替代使用者的最終視覺判斷。
+- 本專案的視覺檢查由使用者進行；Agent 不主動啟動瀏覽器截圖、headless browser、in-app Browser 或其他自動視覺 QA 來替代使用者。
+- 視覺品質、主要 viewport 與細節氛圍以使用者手動瀏覽器檢驗與回饋為準。
 - 檢查 keyboard、focus、reduced motion 與外部連結。
-- 在此 Windows/Codex 環境中，in-app Browser / `node_repl` 可能因 sandbox 啟動失敗；若連續失敗，不要卡在該工具，可改用使用者手動瀏覽器回報、served HTML/CSS 檢查，或其他可用的本機瀏覽器驗證方式。
-- Agent 可執行 served HTML/CSS、資產 200、DOM 結構與明顯 overflow 風險等機械檢查；若需要視覺判斷，交由使用者手動預覽並依回饋修正。
-- 除非使用者明確要求，不要反覆啟動 Edge/Chromium headless 或 in-app Browser 截圖來驗證本專案 UI；自動截圖在本機 Windows/Codex 環境中只可作輔助，不可覆蓋使用者實際瀏覽器結果。
+- Agent 可執行 served HTML/CSS、資產 200、DOM 結構、圖片尺寸屬性、lazy/fetch priority 設定與明顯 overflow/CLS 風險等機械檢查；若需要視覺判斷，交由使用者手動預覽並依回饋修正。
+- 只有在使用者明確要求使用特定瀏覽器工具時，Agent 才應啟動該工具；工具結果不得覆蓋使用者實際瀏覽器回饋。
 
 ## 待決策事項
 - [x] 預覽後暫時移除 `Emu Iansui Subset`，全站改回單一粉圓字型。

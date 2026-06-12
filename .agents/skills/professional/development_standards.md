@@ -33,15 +33,16 @@
 
 ### 測試與驗證
 - **靜態驗證**：若有 build、lint、format 或 typecheck，變更後應執行。
-- **視覺驗證邊界**：本專案後續 UI 視覺品質由使用者手動瀏覽器檢驗為準。Agent 應完成 build、typecheck、資產路徑、served HTML/CSS、DOM 結構與明顯 overflow 風險等可機械檢查，並把視覺細節交給使用者實際預覽。
-- **工具可信度檢查**：除非使用者明確要求，不要反覆使用自動化截圖、headless browser 或 in-app Browser 替代本專案的人工視覺檢驗。若自動化工具結果與使用者手動瀏覽器、served CSS/DOM 或本機檔案狀態互相矛盾，不可繼續依截圖猜測修正；以使用者實際瀏覽器回報與可檢查的 DOM/CSS 為準。
-- **無工具時手動檢查**：若專案尚未有測試工具，至少檢查檔案結構、HTML 合法性、連結與 responsive 版面。
+- **視覺驗證邊界**：本專案的視覺檢查由使用者進行。Agent 不主動啟動自動截圖、headless browser、in-app Browser 或其他瀏覽器視覺 QA 來替代使用者。
+- **機械驗證責任**：Agent 應完成 build、typecheck、資產路徑、served HTML/CSS、DOM 結構、圖片尺寸屬性、lazy/fetch priority 設定、可及性屬性與明顯 overflow/CLS 風險等可機械檢查，並把可預覽狀態交給使用者做視覺檢查。
+- **使用者回饋優先**：若使用者提供截圖或文字回饋，以使用者實際瀏覽器看到的畫面為準；Agent 不用自動截圖反向驗證或推翻使用者回饋。
+- **無工具時手動檢查**：若專案尚未有測試工具，至少檢查檔案結構、HTML 合法性、連結、圖片屬性與 responsive 規則的機械風險。
 
 ## 執行步驟
 1. 實作前先讀取 `AGENTS.md`、mission、architecture 與本技能。
 2. 判斷是否真的需要建置工具、套件或框架；沒有明確理由時維持靜態簡單。
 3. 建立或修改程式碼時，同時考慮語意、效能、可維護性、無障礙與部署輸出。
-4. 完成後執行可用的 build/lint/test，並視覺檢查主要 viewport。
+4. 完成後執行可用的 build/lint/test 與機械檢查，並交由使用者檢查主要 viewport 的視覺結果。
 5. 任務結束前依 `documentation_sync.md` 檢查文件是否需要同步。
 
 ## 範例

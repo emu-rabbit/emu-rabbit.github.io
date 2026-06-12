@@ -39,6 +39,14 @@ copy, assets, or user interaction, also read:
 
 1. `.agents/skills/professional/ui_ux_standards.md`
 
+Visual inspection for this project is performed by the user. Agents should not
+start browser screenshots, headless visual checks, or in-app Browser visual QA
+unless the user explicitly asks for that tool. After UI or image changes, agents
+should complete mechanical checks such as build/typecheck, asset paths,
+HTML/CSS/DOM structure, image sizing attributes, lazy/fetch-priority settings,
+accessibility attributes, and obvious overflow or layout-shift risks, then hand
+the preview back to the user for visual review.
+
 Use `.agents/skills/_skill_template.md` when adding new project-specific skills.
 
 When the user asks to `add and commit all`, `commit all`, `全部提交`, or otherwise
