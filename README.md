@@ -22,6 +22,10 @@
   - tiny placeholder 只作為載入前的柔和底，不可長時間霧化或遮蔽主照片。
   - 載入完成後以克制淡入呈現；不要為了特效讓首屏停在模糊預覽。
 - `public/brand-mark.svg` 是主要兔子品牌 icon，應避免加入圖表式長條、數字或儀表板語彙。
+- 背景整體採窗邊手記式分層：首屏與少數關鍵段落可使用具象圖片場景，中後段優先用 CSS 色溫、紙感、相簿感、細線與既有圖片形成章節差異，不為每段新增大型 AI 背景圖。
+- 關係／愛的道路段落作為後半頁情緒高潮，使用壓縮後的生成式氛圍背景，並以 CSS 深色遮罩確保文字可讀與整體不突兀；桌機與手機需各自使用專門構圖，不可用桌面圖裁切代替手機設計：
+  - `public/assets/love-road-atmosphere.jpg`
+  - `public/assets/love-road-atmosphere-mobile.jpg`
 - 職業技能區塊移植自 GitHub profile repo `emu-rabbit/emu-rabbit`：
   - `public/assets/professional-rabbit-sound.png`
   - `public/assets/professional-skill-icons.svg`
