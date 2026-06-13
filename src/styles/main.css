@@ -33,6 +33,7 @@
 
 html {
   scroll-behavior: smooth;
+  touch-action: manipulation;
 }
 
 body {
@@ -46,6 +47,7 @@ body {
   font-family: var(--font-sans);
   line-height: 1.75;
   text-rendering: optimizeLegibility;
+  touch-action: manipulation;
 }
 
 body::before,
@@ -1394,6 +1396,7 @@ html[data-locale="en"] .social-links-copy h2 {
   width: min(calc(100% - clamp(1.5rem, 6vw, 5rem)), 64rem);
   margin: 0 auto;
   min-width: 0;
+  touch-action: manipulation;
 }
 
 @media (min-width: 900px) {
