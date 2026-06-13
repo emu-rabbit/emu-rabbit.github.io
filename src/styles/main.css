@@ -789,6 +789,180 @@ html.is-enhanced .hero-photo img.is-loaded {
   line-height: 1.78;
 }
 
+.social-links {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3.8rem, 7vw, 6.8rem) var(--space-page) clamp(4rem, 8vw, 7.2rem);
+  background:
+    radial-gradient(ellipse at 84% 18%, rgba(159, 183, 154, 0.14), transparent 28rem),
+    radial-gradient(ellipse at 16% 82%, rgba(242, 190, 123, 0.12), transparent 26rem),
+    linear-gradient(135deg, rgba(19, 15, 24, 0.9), rgba(31, 22, 38, 0.76) 54%, rgba(19, 15, 24, 0.92)),
+    var(--color-night-deep);
+}
+
+.social-links::before,
+.social-links::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.social-links::before {
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 248, 238, 0.18), transparent);
+}
+
+.social-links::after {
+  right: max(1.2rem, calc((100vw - var(--max-width)) / 2));
+  bottom: -11rem;
+  width: min(28rem, 68vw);
+  height: min(28rem, 68vw);
+  border: 1px solid rgba(255, 248, 238, 0.08);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 34%, rgba(255, 248, 238, 0.12), transparent 0.4rem),
+    radial-gradient(circle at 66% 62%, rgba(159, 183, 154, 0.13), transparent 0.34rem),
+    radial-gradient(circle, rgba(242, 190, 123, 0.09), transparent 66%);
+  opacity: 0.72;
+}
+
+.social-links-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.6rem, 4vw, 2.4rem);
+  align-items: start;
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+}
+
+.social-links-copy {
+  width: 100%;
+  text-wrap: pretty;
+}
+
+.social-links-copy h2 {
+  margin: 0.55rem 0 0;
+  color: var(--color-ink);
+  font-size: clamp(2.1rem, 4.2vw, 4rem);
+  font-weight: 400;
+  line-height: 1.16;
+}
+
+html[data-locale="en"] .social-links-copy h2 {
+  font-size: clamp(2rem, 3.9vw, 3.72rem);
+  white-space: nowrap;
+}
+
+.social-link-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.72rem, 1.6vw, 1rem);
+}
+
+.social-link-card {
+  --social-brand: var(--color-amber);
+
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto minmax(2.4rem, 1fr);
+  gap: 0.72rem;
+  align-content: start;
+  min-height: clamp(9.2rem, 18vw, 11.5rem);
+  border: 1px solid rgba(255, 248, 238, 0.16);
+  border-radius: var(--radius-small);
+  padding: clamp(0.88rem, 1.6vw, 1.08rem);
+  background:
+    radial-gradient(ellipse at 24% 16%, color-mix(in srgb, var(--social-brand) 24%, transparent), transparent 7rem),
+    linear-gradient(145deg, rgba(255, 248, 238, 0.1), rgba(255, 248, 238, 0.04)),
+    rgba(255, 248, 238, 0.05);
+  color: var(--color-ink);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 238, 0.12),
+    0 1rem 2.5rem rgba(0, 0, 0, 0.16);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.social-link-card::after {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 0.52rem;
+  height: 0.52rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  content: "";
+  color: color-mix(in srgb, var(--social-brand) 72%, var(--color-ink));
+  opacity: 0.86;
+  transform: rotate(45deg);
+}
+
+.social-link-card:hover {
+  border-color: color-mix(in srgb, var(--social-brand) 44%, rgba(255, 248, 238, 0.2));
+  background:
+    radial-gradient(ellipse at 24% 16%, color-mix(in srgb, var(--social-brand) 32%, transparent), transparent 7.4rem),
+    linear-gradient(145deg, rgba(255, 248, 238, 0.14), rgba(255, 248, 238, 0.06)),
+    rgba(255, 248, 238, 0.07);
+  transform: translateY(-1px);
+}
+
+.social-link-card-x {
+  --social-brand: #fff8ee;
+}
+
+.social-link-card-facebook {
+  --social-brand: #8bb8ff;
+}
+
+.social-link-card-github {
+  --social-brand: #d7c9e8;
+}
+
+.social-link-card-discord {
+  --social-brand: #b8b8ff;
+}
+
+.social-link-card-email {
+  --social-brand: #f2be7b;
+}
+
+.social-link-logo {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid color-mix(in srgb, var(--social-brand) 32%, rgba(255, 248, 238, 0.16));
+  border-radius: var(--radius-small);
+  background: rgba(19, 15, 24, 0.28);
+  color: var(--social-brand);
+  box-shadow: inset 0 1px 0 rgba(255, 248, 238, 0.12);
+}
+
+.social-link-logo svg {
+  width: 1.42rem;
+  height: 1.42rem;
+  fill: currentColor;
+}
+
+.social-link-label {
+  color: var(--social-brand);
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
+
+.social-link-value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--color-ink-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 .professional-skills {
   position: relative;
   overflow: hidden;
@@ -1619,6 +1793,66 @@ html.is-enhanced .life-gallery-controls {
     line-height: 1.78;
   }
 
+  .social-links {
+    padding-top: 3.8rem;
+    padding-bottom: 4.4rem;
+    background:
+      radial-gradient(ellipse at 86% 14%, rgba(159, 183, 154, 0.13), transparent 18rem),
+      radial-gradient(ellipse at 12% 82%, rgba(242, 190, 123, 0.1), transparent 18rem),
+      linear-gradient(180deg, rgba(19, 15, 24, 0.86), rgba(31, 22, 38, 0.78)),
+      var(--color-night-deep);
+  }
+
+  .social-links::after {
+    right: -10rem;
+    bottom: -9rem;
+    width: 22rem;
+    height: 22rem;
+  }
+
+  .social-links-inner {
+    gap: 1.35rem;
+  }
+
+  .social-links-copy h2 {
+    font-size: 2rem;
+    line-height: 1.55;
+  }
+
+  html[data-locale="en"] .social-links-copy h2 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    line-height: 1.28;
+    white-space: normal;
+  }
+
+  .social-link-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.72rem;
+  }
+
+  .social-link-card {
+    min-height: 9rem;
+    padding: 0.86rem;
+  }
+
+  .social-link-logo {
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+
+  .social-link-logo svg {
+    width: 1.32rem;
+    height: 1.32rem;
+  }
+
+  .social-link-label {
+    font-size: 0.9rem;
+  }
+
+  .social-link-value {
+    font-size: 0.96rem;
+  }
+
   .professional-skills {
     padding-top: 4.1rem;
     padding-bottom: 5.2rem;
@@ -1842,6 +2076,14 @@ html.is-enhanced .life-gallery-controls {
 
   .love-road-quote {
     font-size: 1rem;
+  }
+
+  .social-links-copy h2 {
+    font-size: 1.34rem;
+  }
+
+  .social-link-value {
+    font-size: 0.92rem;
   }
 
   .skill-rabbit {
