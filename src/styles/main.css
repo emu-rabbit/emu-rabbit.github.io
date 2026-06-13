@@ -639,6 +639,156 @@ html.is-enhanced .hero-photo img.is-loaded {
   box-shadow: 0 0 1rem rgba(242, 190, 123, 0.36);
 }
 
+.love-road {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4.8rem, 9vw, 8.8rem) var(--space-page) clamp(5rem, 10vw, 9.2rem);
+  background:
+    radial-gradient(ellipse at 74% 20%, rgba(216, 154, 157, 0.18), transparent 30rem),
+    radial-gradient(ellipse at 16% 70%, rgba(242, 190, 123, 0.12), transparent 28rem),
+    linear-gradient(115deg, rgba(31, 22, 38, 0.84), rgba(19, 15, 24, 0.7) 52%, rgba(31, 22, 38, 0.88)),
+    var(--color-night-deep);
+}
+
+.love-road::before,
+.love-road::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.love-road::before {
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 248, 238, 0.2), transparent);
+}
+
+.love-road::after {
+  top: clamp(4rem, 8vw, 7rem);
+  right: max(1.2rem, calc((100vw - var(--max-width)) / 2));
+  width: min(32rem, 70vw);
+  height: min(32rem, 70vw);
+  border: 1px solid rgba(255, 248, 238, 0.08);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 32%, rgba(216, 154, 157, 0.16), transparent 0.46rem),
+    radial-gradient(circle at 66% 62%, rgba(242, 190, 123, 0.13), transparent 0.34rem),
+    radial-gradient(circle, rgba(216, 154, 157, 0.1), transparent 64%);
+  opacity: 0.72;
+}
+
+.love-road-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.42fr) minmax(0, 1fr);
+  gap: clamp(2.2rem, 6vw, 6rem);
+  align-items: center;
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+}
+
+.love-road-marker {
+  position: relative;
+  min-height: clamp(18rem, 32vw, 26rem);
+  border-left: 1px solid rgba(255, 248, 238, 0.14);
+}
+
+.love-road-ring,
+.love-road-thread,
+.love-road-petal {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.love-road-ring {
+  top: 50%;
+  left: 50%;
+  width: min(84%, 18rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(216, 154, 157, 0.38);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 52% 48%, transparent 35%, rgba(255, 248, 238, 0.07) 36%, transparent 62%),
+    radial-gradient(circle, rgba(216, 154, 157, 0.08), transparent 68%);
+  box-shadow:
+    inset 0 0 2.4rem rgba(255, 248, 238, 0.04),
+    0 1.6rem 4rem rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+
+.love-road-thread {
+  top: 16%;
+  left: 52%;
+  width: min(70%, 15rem);
+  height: 68%;
+  border-top: 1px solid rgba(242, 190, 123, 0.4);
+  border-right: 1px solid rgba(255, 248, 238, 0.12);
+  border-radius: 0 56% 0 0;
+  transform: translateX(-50%) rotate(18deg);
+}
+
+.love-road-petal {
+  width: min(24%, 4.8rem);
+  aspect-ratio: 0.72;
+  border: 1px solid rgba(255, 248, 238, 0.16);
+  border-radius: 54% 46% 58% 42%;
+  background:
+    radial-gradient(ellipse at 50% 72%, rgba(255, 248, 238, 0.24), transparent 36%),
+    linear-gradient(145deg, rgba(216, 154, 157, 0.42), rgba(242, 190, 123, 0.13));
+  box-shadow: 0 1.2rem 2.6rem rgba(0, 0, 0, 0.22);
+}
+
+.love-road-petal-top {
+  top: 18%;
+  right: 18%;
+  transform: rotate(24deg);
+}
+
+.love-road-petal-bottom {
+  bottom: 18%;
+  left: 18%;
+  opacity: 0.84;
+  transform: rotate(-156deg);
+}
+
+.love-road-copy {
+  max-width: 48rem;
+  text-wrap: pretty;
+}
+
+.love-road-copy h2 {
+  margin: 0.55rem 0 0;
+  color: var(--color-ink);
+  font-size: clamp(1.72rem, 3.3vw, 2.82rem);
+  font-weight: 400;
+  line-height: 1.42;
+}
+
+.love-road-prose {
+  display: grid;
+  gap: 1.08rem;
+  margin-top: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--color-ink-muted);
+  font-size: 1.02rem;
+  line-height: 2.04;
+}
+
+.love-road-prose p {
+  margin: 0;
+}
+
+.love-road-quote {
+  position: relative;
+  margin-bottom: 0.2rem;
+  border-left: 1px solid rgba(242, 190, 123, 0.48);
+  padding: 0.12rem 0 0.18rem 1rem;
+  color: var(--color-ink);
+  font-size: clamp(1.16rem, 2.1vw, 1.42rem);
+  line-height: 1.78;
+}
+
 .professional-skills {
   position: relative;
   overflow: hidden;
@@ -1399,6 +1549,76 @@ html.is-enhanced .life-gallery-controls {
     line-height: 1.9;
   }
 
+  .love-road {
+    padding-top: 4.2rem;
+    padding-bottom: 5.4rem;
+    background:
+      radial-gradient(ellipse at 82% 12%, rgba(216, 154, 157, 0.16), transparent 18rem),
+      radial-gradient(ellipse at 12% 78%, rgba(242, 190, 123, 0.1), transparent 18rem),
+      linear-gradient(180deg, rgba(31, 22, 38, 0.78), rgba(19, 15, 24, 0.82)),
+      var(--color-night-deep);
+  }
+
+  .love-road::after {
+    top: 4rem;
+    right: -10rem;
+    width: 22rem;
+    height: 22rem;
+  }
+
+  .love-road-inner {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .love-road-marker {
+    order: -1;
+    min-height: 12.8rem;
+    border-left: 0;
+    border-bottom: 1px solid rgba(255, 248, 238, 0.12);
+  }
+
+  .love-road-ring {
+    width: min(58vw, 12.8rem);
+  }
+
+  .love-road-thread {
+    top: 9%;
+    width: min(54vw, 12rem);
+    height: 76%;
+  }
+
+  .love-road-petal {
+    width: min(17vw, 3.8rem);
+  }
+
+  .love-road-petal-top {
+    top: 16%;
+    right: 28%;
+  }
+
+  .love-road-petal-bottom {
+    bottom: 14%;
+    left: 27%;
+  }
+
+  .love-road-copy h2 {
+    font-size: 1.55rem;
+    line-height: 1.55;
+  }
+
+  .love-road-prose {
+    gap: 0.95rem;
+    margin-top: 1.24rem;
+    font-size: 0.98rem;
+    line-height: 1.9;
+  }
+
+  .love-road-quote {
+    font-size: 1.08rem;
+    line-height: 1.78;
+  }
+
   .professional-skills {
     padding-top: 4.1rem;
     padding-bottom: 5.2rem;
@@ -1606,6 +1826,22 @@ html.is-enhanced .life-gallery-controls {
 
   .body-notes-prose {
     font-size: 0.94rem;
+  }
+
+  .love-road-marker {
+    min-height: 11.2rem;
+  }
+
+  .love-road-copy h2 {
+    font-size: 1.36rem;
+  }
+
+  .love-road-prose {
+    font-size: 0.94rem;
+  }
+
+  .love-road-quote {
+    font-size: 1rem;
   }
 
   .skill-rabbit {
