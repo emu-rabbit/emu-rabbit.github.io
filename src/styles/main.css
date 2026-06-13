@@ -1446,6 +1446,11 @@ html[data-locale="en"] .social-links-copy h2 {
 
 html.is-enhanced .life-gallery-viewport {
   overflow: hidden;
+  scroll-snap-type: none;
+}
+
+html.is-enhanced .life-gallery-slide {
+  scroll-snap-align: none;
 }
 
 .life-gallery-track {

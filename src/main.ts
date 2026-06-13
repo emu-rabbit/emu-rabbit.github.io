@@ -55,19 +55,21 @@ function setupLifeGallery(): void {
     return;
   }
 
+  const viewport = gallery.querySelector<HTMLElement>('.life-gallery-viewport');
   const track = gallery.querySelector<HTMLOListElement>('.life-gallery-track');
   const slides = Array.from(gallery.querySelectorAll<HTMLElement>('[data-life-gallery-slide]'));
   const previousButton = gallery.querySelector<HTMLButtonElement>('[data-life-gallery-action="prev"]');
   const nextButton = gallery.querySelector<HTMLButtonElement>('[data-life-gallery-action="next"]');
   const status = gallery.querySelector<HTMLElement>('[data-life-gallery-status]');
 
-  if (!track || slides.length === 0 || !previousButton || !nextButton || !status) {
+  if (!track || slides.length === 0 || !previousButton || !nextButton || !status || !viewport) {
     return;
   }
 
   let activeIndex = 0;
 
   const render = () => {
+    viewport.scrollLeft = 0;
     track.style.transform = `translateX(-${activeIndex * 100}%)`;
     status.textContent = `${activeIndex + 1} / ${slides.length}`;
 
