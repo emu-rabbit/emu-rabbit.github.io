@@ -127,6 +127,37 @@ function applyLocale(locale: Locale): void {
   document.documentElement.lang = locale === 'zh-TW' ? 'zh-Hant' : 'en';
   document.documentElement.dataset.locale = locale;
   window.localStorage.setItem(localeStorageKey, locale);
+
+  const isZh = locale === 'zh-TW';
+
+  const titleZh = '絵夢羽さ沂的窗邊手記';
+  const titleEn = "Emu-Rabbit's Window Notes";
+  const descZh = '絵夢羽さ沂的窗邊手記：溫柔、自由、舒適，也保留一點兔子的可愛與任性。';
+  const descEn = "Emu-Rabbit's Window Notes: gentle, free, and comfortable — with a touch of rabbit whimsy.";
+  const imgAltZh = '絵夢羽さ沂的窗邊手記 — gentle・free・comfortable';
+  const imgAltEn = "Emu-Rabbit's Window Notes — gentle・free・comfortable";
+
+  const title = isZh ? titleZh : titleEn;
+  const desc = isZh ? descZh : descEn;
+  const imgAlt = isZh ? imgAltZh : imgAltEn;
+
+  // Browser tab title
+  document.title = title;
+
+  // Standard description
+  (document.getElementById('meta-description') as HTMLMetaElement | null)?.setAttribute('content', desc);
+
+  // Open Graph
+  (document.getElementById('meta-og-site-name') as HTMLMetaElement | null)?.setAttribute('content', title);
+  (document.getElementById('meta-og-title') as HTMLMetaElement | null)?.setAttribute('content', title);
+  (document.getElementById('meta-og-description') as HTMLMetaElement | null)?.setAttribute('content', desc);
+  (document.getElementById('meta-og-image-alt') as HTMLMetaElement | null)?.setAttribute('content', imgAlt);
+  (document.getElementById('meta-og-locale') as HTMLMetaElement | null)?.setAttribute('content', isZh ? 'zh_TW' : 'en_US');
+
+  // Twitter / X
+  (document.getElementById('meta-twitter-title') as HTMLMetaElement | null)?.setAttribute('content', title);
+  (document.getElementById('meta-twitter-description') as HTMLMetaElement | null)?.setAttribute('content', desc);
+  (document.getElementById('meta-twitter-image-alt') as HTMLMetaElement | null)?.setAttribute('content', imgAlt);
 }
 
 localeButtons.forEach((button) => {
