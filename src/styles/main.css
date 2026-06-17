@@ -895,7 +895,7 @@ html[data-locale="en"] .social-links-copy h2 {
 
 .social-link-list {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(9.2rem, 1fr));
   gap: clamp(0.72rem, 1.6vw, 1rem);
 }
 
@@ -962,6 +962,10 @@ html[data-locale="en"] .social-links-copy h2 {
 
 .social-link-card-discord {
   --social-brand: #b8b8ff;
+}
+
+.social-link-card-line-app {
+  --social-brand: #8bdc8c;
 }
 
 .social-link-card-email {
