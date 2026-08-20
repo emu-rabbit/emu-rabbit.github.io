@@ -2,6 +2,7 @@ type Locale = 'zh-TW' | 'en';
 
 const supportedLocales: Locale[] = ['zh-TW', 'en'];
 const localeButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-locale]'));
+const portfolioLink = document.querySelector<HTMLAnchorElement>('[data-portfolio-link]');
 const localeStorageKey = 'emuu-sai-locale';
 
 document.documentElement.classList.add('is-enhanced');
@@ -140,6 +141,14 @@ function applyLocale(locale: Locale): void {
   const title = isZh ? titleZh : titleEn;
   const desc = isZh ? descZh : descEn;
   const imgAlt = isZh ? imgAltZh : imgAltEn;
+
+  if (portfolioLink) {
+    const localizedHref = isZh ? portfolioLink.dataset.hrefZh : portfolioLink.dataset.hrefEn;
+
+    if (localizedHref) {
+      portfolioLink.href = localizedHref;
+    }
+  }
 
   // Browser tab title
   document.title = title;
