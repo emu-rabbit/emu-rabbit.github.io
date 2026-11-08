@@ -56,10 +56,11 @@
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link
       rel="preload"
-      href="./assets/window-portrait.jpg"
+      href="./assets/window-portrait-1240.webp"
       as="image"
-      imagesrcset="./assets/window-portrait-640.jpg 640w, ./assets/window-portrait-960.jpg 960w, ./assets/window-portrait.jpg 1240w"
-      imagesizes="(max-width: 760px) 100vw, 76vw"
+      type="image/webp"
+      imagesrcset="./assets/window-portrait-480.webp 480w, ./assets/window-portrait-640.webp 640w, ./assets/window-portrait-960.webp 960w, ./assets/window-portrait-1240.webp 1240w, ./assets/window-portrait-1600.webp 1600w, ./assets/window-portrait-2500.webp 2500w"
+      imagesizes="(max-width: 360px) max(100vw, 33.264rem), (max-width: 760px) max(100vw, min(39.6rem, 82.368svh)), max(min(76vw, 78rem), calc(158.4svh - 12.672rem), 72rem)"
       fetchpriority="high"
     />
     <link rel="preload" href="./assets/ambient-desktop.webp" as="image" media="(min-width: 761px)" />
@@ -87,12 +88,15 @@
         <div class="hero-photo">
           <picture>
             <source
-              srcset="./assets/window-portrait-640.jpg 640w, ./assets/window-portrait-960.jpg 960w, ./assets/window-portrait.jpg 1240w"
-              sizes="(max-width: 760px) 100vw, 76vw"
-              type="image/jpeg"
+              srcset="./assets/window-portrait-480.webp 480w, ./assets/window-portrait-640.webp 640w, ./assets/window-portrait-960.webp 960w, ./assets/window-portrait-1240.webp 1240w, ./assets/window-portrait-1600.webp 1600w, ./assets/window-portrait-2500.webp 2500w"
+              sizes="(max-width: 360px) max(100vw, 33.264rem), (max-width: 760px) max(100vw, min(39.6rem, 82.368svh)), max(min(76vw, 78rem), calc(158.4svh - 12.672rem), 72rem)"
+              type="image/webp"
             />
             <img
-              src="./assets/window-portrait.jpg"
+              src="./assets/window-portrait-1240.webp"
+              srcset="./assets/window-portrait-480.webp 480w, ./assets/window-portrait-640.webp 640w, ./assets/window-portrait-960.webp 960w, ./assets/window-portrait-1240.webp 1240w, ./assets/window-portrait-1600.webp 1600w, ./assets/window-portrait-2500.webp 2500w"
+              sizes="(max-width: 360px) max(100vw, 33.264rem), (max-width: 760px) max(100vw, min(39.6rem, 82.368svh)), max(min(76vw, 78rem), calc(158.4svh - 12.672rem), 72rem)"
+              loading="eager"
               alt="絵夢羽さ沂倚在窗邊微笑的照片"
               width="1240"
               height="784"

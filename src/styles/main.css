@@ -234,7 +234,7 @@ html[data-locale="en"] [data-locale-content="en"] {
   overflow: hidden;
   background:
     linear-gradient(120deg, rgba(255, 248, 238, 0.16), rgba(159, 183, 154, 0.12)),
-    url("/assets/window-portrait-tiny.jpg") center / cover,
+    url("/assets/window-portrait-tiny.webp") center / cover,
     #1f1626;
   mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.28) 13%, #000 32%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.28) 13%, #000 32%);
@@ -247,7 +247,7 @@ html[data-locale="en"] [data-locale-content="en"] {
   content: "";
   background:
     linear-gradient(90deg, rgba(31, 22, 38, 0.08), rgba(255, 248, 238, 0.06)),
-    url("/assets/window-portrait-tiny.jpg") center / cover;
+    url("/assets/window-portrait-tiny.webp") center / cover;
   filter: blur(16px);
   opacity: 0.74;
   transform: scale(1.06);

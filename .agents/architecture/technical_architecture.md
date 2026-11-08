@@ -87,6 +87,11 @@ Vite
 - 不為簡單互動導入大型 runtime；Vue 只有在畫面真的需要資料響應、複雜狀態或大量互動元件時才重新評估。
 
 ### Assets
+- 首屏本人照片的所有 responsive 候選與 tiny placeholder 使用 WebP。從私有原圖依既有構圖裁切後縮小，禁止上採樣、生成式處理、修臉、去噪、銳化或調色；原圖、EXIF、XMP 不進公開 repo。保留正確 sRGB ICC。
+- `tools/portrait.py` 接受本機原圖路徑，產生 480 / 640 / 960 / 1240 / 1600 / 2500px 候選；需要 Pillow，非每次 build 的必要依賴。
+- 首屏 preload、source、img 的候選與 sizes 必須一致。sizes 以 `max(容器寬, 容器高 × 圖片比例)` 估計 cover；手機另計 ≤360px 的 21rem 高度，以及 361–760px 的 min(25rem, 52svh)。桌面寬度上限 78rem，高度至少 100svh − 8rem，另保守預留目前雙語文案約 45.45rem 的高度（換算 72rem 圖片寬），不只依 viewport 高度推算。修改文案、字型、字級、padding 或斷點後必須重查此預留。
+- 採宣告式首次選圖，不在載入後用 JavaScript 改 sizes；避免同一次首屏載入重取大圖。此靜態估計無法保證任意使用者字型覆寫或極端文字放大後的精確 cover，最高候選也有 2500px 的真實細節上限；不得聲稱所有 4K/DPR 情況皆逐像素清晰。
+- 桌面文案高度預留的依據：目前 32rem 文案欄，以 kicker 2 行、標題 1 行、lede 2 行、story 合計 8 行、whisper 2 行，加既有 margins、actions 與上下 padding，約 43.6rem，向上預留至約 45.45rem。這是靜態 CSS／文案的保守估計，不是瀏覽器量測；若內容超出此範圍，需要更新 sizes，不可固定或裁掉文字來配合照片。
 - 圖片需提供合適尺寸與格式，避免首屏過重。
 - 首屏或大型人物照片不得只提交單一原圖。應依實際構圖輸出多尺寸版本，例如桌機寬版、一般螢幕版、手機版，並額外輸出極小 placeholder 作為慢網路載入前的柔和底。
 - 大型圖片 HTML 應使用 `srcset` / `sizes`，讓瀏覽器按 viewport 與 DPR 選擇合適資產；若圖片位於首屏，可用 `fetchpriority="high"`，但仍需控制檔案大小。
