@@ -50,3 +50,7 @@ npm run build
 ```
 
 這個專案有自訂字體 subset 與靜態資產處理，所以 build 時會先跑字體腳本。若你只是在 GitHub 上路過，知道這是一個用很多小心意慢慢搭起來的個人靜態站，就已經足夠了。
+
+首屏照片提供 480、640、960、1240、1600、2500px 的 WebP 與 tiny placeholder，瀏覽器依 cover 所需尺寸與 DPR 選圖。保留原有構圖、版面空間與載入淡入。這不是生成或修圖流程；只有原圖裁切、縮小與編碼。重建時先在本機安裝 Pillow，再執行 `python tools/portrait.py /private/path/original-portrait.jpg`，不要把未裁切原圖加入 repo。
+
+候選以 Pillow Lanczos、WebP quality 84 / method 6 產生，保留 sRGB ICC、移除 EXIF / XMP。桌面 sizes 包含目前雙語文案的保守高度預留，文案或版面變更時需一起檢查。只提供 WebP，支援現代 Chrome、Edge、Firefox 與 Safari 14+；舊版不支援 WebP 的瀏覽器不另下載 JPEG。相容性依據：[WebP FAQ](https://developers.google.com/speed/webp/faq)。
