@@ -36,6 +36,8 @@
 
 目前技術上使用 Vite + TypeScript，核心內容盡量放在 HTML 裡，讓頁面可以很快被看見。JavaScript 只做少量漸進增強，例如語言切換與互動細節。
 
+專業技能區的獨角兔底圖取自 [GitHub 個人檔案的 RabbitSound.svg](https://github.com/emu-rabbit/emu-rabbit/blob/main/assets/RabbitSound.svg)。對話框文字在頁內用相同的 SVG 座標疊上，跟隨網站語言顯示「喵」或「Meow」。
+
 ## 如果你想在本機打開窗
 
 ```powershell

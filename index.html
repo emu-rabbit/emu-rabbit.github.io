@@ -284,14 +284,23 @@
 
           <div class="professional-skills-visual" aria-label="GitHub profile 上的技能視覺">
             <figure class="skill-rabbit">
-              <img
-                src="./assets/professional-rabbit-sound.png"
-                alt="GitHub profile 中兔子發出 Meow 聲音，旁邊寫著 Rabbit sound with i18n system 的趣味圖片"
-                width="600"
-                height="600"
-                loading="lazy"
-                decoding="async"
-              />
+              <div class="skill-rabbit-art">
+                <img
+                  src="./assets/professional-rabbit-sound.webp"
+                  alt="獨角兔在對話框裡說「喵」，下方寫著 Rabbit sound with i18n system"
+                  data-rabbit-sound
+                  data-alt-zh="獨角兔在對話框裡說「喵」，下方寫著 Rabbit sound with i18n system"
+                  data-alt-en="A unicorn rabbit says “Meow” in a speech bubble. The caption reads Rabbit sound with i18n system."
+                  width="720"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <svg class="skill-rabbit-sound" viewBox="0 0 1254 1254" aria-hidden="true">
+                  <text data-locale-content="zh-TW" x="250" y="306">喵</text>
+                  <text data-locale-content="en" x="250" y="302">Meow</text>
+                </svg>
+              </div>
             </figure>
 
             <div class="skill-icons-strip">

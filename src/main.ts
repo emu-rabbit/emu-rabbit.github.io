@@ -3,6 +3,7 @@ type Locale = 'zh-TW' | 'en';
 const supportedLocales: Locale[] = ['zh-TW', 'en'];
 const localeButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-locale]'));
 const portfolioLink = document.querySelector<HTMLAnchorElement>('[data-portfolio-link]');
+const rabbitSound = document.querySelector<HTMLImageElement>('[data-rabbit-sound]');
 const localeStorageKey = 'emuu-sai-locale';
 
 document.documentElement.classList.add('is-enhanced');
@@ -130,6 +131,10 @@ function applyLocale(locale: Locale): void {
   window.localStorage.setItem(localeStorageKey, locale);
 
   const isZh = locale === 'zh-TW';
+
+  if (rabbitSound) {
+    rabbitSound.alt = (isZh ? rabbitSound.dataset.altZh : rabbitSound.dataset.altEn) ?? rabbitSound.alt;
+  }
 
   const titleZh = '絵夢羽さ沂的窗邊手記';
   const titleEn = "Emu-Rabbit's Window Notes";
